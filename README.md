@@ -264,6 +264,10 @@ python opcua_server.py
 **Terminal 2**: Execute o servidor Web FastAPI.
 
 ```bash
+python.exe -m venv venv
+
+.\venv\Scripts\Activate
+
 uvicorn web_api:app --reload --port 8000
 ```
 
