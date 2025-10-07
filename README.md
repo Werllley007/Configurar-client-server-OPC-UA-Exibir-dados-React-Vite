@@ -252,15 +252,8 @@ footer {
 
 
 ## 3. Execute a Aplicação React
+
 No terminal do projeto vite-opcua-dashboard, execute:
-
-```bash
-npm run dev
-```
-
-O Vite iniciará o servidor de desenvolvimento e te dará um link (geralmente **http://localhost:5173**). Abra este link no seu navegador.
-
-### Como Rodar Tudo
 
 **Terminal 1**: Execute o servidor OPC UA (corrigido).
 
@@ -276,11 +269,15 @@ uvicorn web_api:app --reload --port 8000
 
 **Terminal 3**: No diretório vite-opcua-dashboard, execute a aplicação React.
 
+Dentro da pasta:
+
 ```bash
+cd vite-opcua-dashboard
+
 npm run dev
 ```
 
-Abra o navegador no endereço fornecido pelo Vite (ex: **http://localhost:5173**).
+O Vite iniciará o servidor de desenvolvimento e te dará um link (geralmente **http://localhost:5173**). Abra este link no seu navegador.
 
 Você deverá ver um dashboard simples em React exibindo os valores dos sensores de temperatura, tempo de atividade e produção total, atualizando-se a cada 3 segundos.
 
