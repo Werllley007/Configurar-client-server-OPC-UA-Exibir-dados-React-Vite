@@ -566,7 +566,7 @@ export default App;
 
 ### Caso seja com DOIS SERVIDOR OPC-UA Edite src/App.jsx:
 
-Substitua o conteúdo de src/App.jsx pelo seguinte:
+Substitua o conteúdo de src/App.jsx pelo seguinte (em anexo tem opcua_server_new.py):
 
 ```bash
 import React, { useState, useEffect } from 'react';
