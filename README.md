@@ -91,18 +91,15 @@ codigo: [web_api.py](/um_servidor/web_api.py)
 
 ### Criar e Ativar o Ambiente Virtual
 
-Instalar o Flask para o servidor web e o ambiente virtual (flask_env), escolha o nome para o qualquer o seu ambiente no lugar de flask_env.
+Instalar o Flask para o servidor web e o ambiente virtual (test_venv), escolha o nome para o qualquer o seu ambiente no lugar de test_venv.
 
 ```bash
 sudo apt update
 sudo apt install python3-pip python3-venv -y
 
 # 1. Cria e ativa o ambiente virtual
-python3 -m venv flask_env
-source flask_env/bin/activate
-
-# 2. Instala o Flask
-pip install Flask
+python3 -m venv test_venv
+source test_venv/bin/activate
 ```
 
 Após a ativação, você verá (flask_env) no início da sua linha de comando, indicando que está no ambiente isolado
@@ -126,6 +123,14 @@ uvicorn web_api:app --reload --port 8000
 
 ```bash
 npm create vite@latest vite-opcua-dashboard -- --template react
+
+Use rolldown-vite (Experimental)?:
+│  ○ Yes
+│  ● No
+
+Install with npm and start now?
+│  ● Yes / ○ No
+
 
 cd vite-opcua-dashboard
 
