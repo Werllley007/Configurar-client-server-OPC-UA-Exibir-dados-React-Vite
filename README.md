@@ -5,7 +5,7 @@ Neste projeto é criada uma **aplicação front-end em React com Vite** para exi
 Para isso, adiciona-se uma **camada intermediária**: um pequeno servidor Web em Python (Flask ou FastAPI). Isso porque o React (que roda no navegador) não consegue se conectar diretamente a um servidor OPC UA. Ele precisa de uma API HTTP para solicitar os dados.
 
 
-## 1. Instalação do Node.js
+## Instalação do Node.js
 
 Para começar com o React, você precisa ter o Node.js instalado. Ele é necessário para o React e para o comando npx.
 
@@ -19,7 +19,7 @@ https://nodejs.org/
 
 **Instalação**: Execute o instalador baixado. Mantenha as configurações padrão. É crucial que a opção "Add to PATH" esteja marcada, mas geralmente ela já vem marcada por padrão.
 
-## 2. Verificando se o node esta configurado no VS Code
+## Verificando se o node esta configurado no VS Code
 
 Abra o terminal no VS Code, você pode finalmente executar os comandos para **criar seu projeto React/Vite**, pois ele reconhecerá o npm que você instalou:
 
@@ -29,7 +29,15 @@ node -v
 npm -v
 ```
 
-### 2.1. Crie seu projeto React usando Vite
+
+
+
+
+
+
+
+
+### Crie seu projeto React usando Vite
 
 O Vite se tornou a maneira mais rápida e moderna de iniciar um projeto React. Ele oferece uma experiência de desenvolvimento rápida, utilizando a capacidade nativa de módulos ES do navegador.
 
@@ -43,30 +51,33 @@ Ou pode usar o comando abaixo para inserir o nome do projeto e o tipo de templat
 ```bash
 npm create vite@latest meu-projeto-opcua-web -- --template react
 ```
-### 2.2. Entre na pasta do projeto
+### Entre na pasta do projeto
 ```bash
 cd meu-projeto-opcua-web
 ```
-### 2.3. Instale as dependências (as bibliotecas necessárias)
+### Instale as dependências (as bibliotecas necessárias)
 ```bash
 npm install
 ```
-### 2.4. Inicie o servidor de desenvolvimento
+### Inicie o servidor de desenvolvimento
 ```bash
 npm run dev
 ```
 
-## 3. Verifique que abaixo tem para UM e DOIS SERVIDOR OPC-UA 
+
+
+
+
+
+
+
+# Procedimento para UM e DOIS SERVIDORES OPC-UA 
 
 Sugestão de fazer primeiro para um servidor e depois para dois servidores.
 
-## 2. Crie o Servidor Web (Python FastAPI)
+-----------------------------
 
-Vamos usar FastAPI por ser moderno e fácil de usar.
-
-
-### Para UM SERVIDOR OPC-UA 
-
+## UM SERVIDOR OPC-UA 
 
 Crie um novo arquivo chamado **web_api.py**:
 
@@ -74,20 +85,7 @@ Crie um novo arquivo chamado **web_api.py**:
 nano web_api.py
 ```
 
-codigo: [web_api.py](/web_api.py)
-
------------------------------
-
-
-### Para DOIS SERVIDOR OPC-UA 
-
-Crie um novo arquivo chamado **web_api_new.py**:
-
-```bash
-nano web_api_new.py
-```
-
-codigo: [web_api_new.py](/web_api_new.py)
+codigo: [web_api.py](/um_servidor/web_api.py)
 
 ----------------------------
 
@@ -107,7 +105,7 @@ source flask_env/bin/activate
 pip install Flask
 ```
 
-Após a ativação, você verá (venv) no início da sua linha de comando, indicando que está no ambiente isolado
+Após a ativação, você verá (flask_env) no início da sua linha de comando, indicando que está no ambiente isolado
 
 ### Instalar as dependências do web_api.py:
 Com o **ambiente virtual ativo**, instale as dependências. Isso garantirá que o **uvicorn** e os outros pacotes sejam instalados no local correto, onde o ambiente virtual os encontra facilmente.
@@ -122,8 +120,7 @@ pip install fastapi uvicorn freeopcua
 uvicorn web_api:app --reload --port 8000
 ```
 
-
-## 3. Crie a Aplicação React (Vite)
+## Crie a Aplicação React (Vite)
 
 ### Abra um novo terminal e execute:
 
@@ -145,20 +142,9 @@ cd meu-projeto-opcua-web/src/
 nano App.jsx
 ```
 
-codigo: [App.jsx](/App.jsx)
+codigo: [App.jsx](/um_servidor/App.jsx)
 
 ------------------------------------------------------------
-
-### Caso seja com DOIS SERVIDOR OPC-UA Edite src/App.jsx:
-
-Substitua o conteúdo de meu-projeto-opcua-web/src/App.jsx pelo seguinte:
-
-```bash
-cd meu-projeto-opcua-web/src/
-nano App.jsx
-```
-codigo: [App_new.jsx](/App_new.jsx)
-
 
 ###  Edite src/App.css:
 
@@ -168,10 +154,10 @@ Substitua o conteúdo de meu-projeto-opcua-web/src/App.css pelo seguinte:
 cd meu-projeto-opcua-web/src/
 nano App.css
 ```
-codigo: [App.css](/App.css)
+codigo: [App.css](/um_servidor/App.css)
 
 
-## 4. Execute a Aplicação React
+## Execute a Aplicação React
 
 No terminal do projeto vite-opcua-dashboard, execute:
 
@@ -241,7 +227,41 @@ Você deverá ver um dashboard simples em React exibindo os valores dos sensores
 
 
 
+-----------------------------
 
+## DOIS SERVIDORES OPC-UA 
+
+Crie um novo arquivo chamado **web_api_new.py**:
+
+```bash
+nano web_api_new.py
+```
+
+codigo: [web_api_new.py](/dois_servidores/web_api_new.py)
+
+
+
+### DOIS SERVIDORES OPC-UA Edite src/App.jsx:
+
+Substitua o conteúdo de meu-projeto-opcua-web/src/App.jsx pelo seguinte:
+
+```bash
+cd meu-projeto-opcua-web/src/
+nano App.jsx
+```
+codigo: [App_new.jsx](/dois_servidores/App.jsx)
+
+
+
+###  Edite src/App.css:
+
+Substitua o conteúdo de meu-projeto-opcua-web/src/App.css pelo seguinte:
+
+```bash
+cd meu-projeto-opcua-web/src/
+nano App.css
+```
+codigo: [App.css](/um_servidor/App.css)
 
 
 
