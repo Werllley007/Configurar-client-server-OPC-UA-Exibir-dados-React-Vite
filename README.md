@@ -116,6 +116,8 @@ pip install fastapi uvicorn freeopcua
 ```bash
 uvicorn web_api:app --reload --port 8000
 ```
+**Observação**: Caso apresente erro acima troque 8000 por 8001.
+
 
 ## Crie a Aplicação React (Vite)
 
