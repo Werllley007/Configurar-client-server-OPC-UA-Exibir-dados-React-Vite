@@ -4,24 +4,6 @@ Neste projeto é criada uma **aplicação front-end em React com Vite** para exi
 
 Para isso, adiciona-se uma **camada intermediária**: um pequeno servidor Web em Python (Flask ou FastAPI). Isso porque o React (que roda no navegador) não consegue se conectar diretamente a um servidor OPC UA. Ele precisa de uma API HTTP para solicitar os dados.
 
-### 1. Instalação do Node.js
-
-### 2. Um servidor Web em Python (que chamaremos de web_api.py) irá:
-
-  - Conectar-se ao seu opcua_server.py como um cliente OPC UA.
-
-  - Ler os dados do OPC UA.
-
-  - Expor um endpoint HTTP (ex: /api/data) que o front-end React pode consumir.
-
-### 3. A aplicação React (vite-opcua-dashboard) irá:
-
-  - Fazer requisições HTTP para o web_api.py.
-
-  - Exibir os dados recebidos em uma interface amigável.
-
-### 4. Execute a Aplicação React
-
 
 ## 1. Instalação do Node.js
 
@@ -39,7 +21,7 @@ https://nodejs.org/
 
 ## 2. Verificando se o node esta configurado no VS Code
 
-Neste terminal que se abrirá dentro do VS Code, você pode finalmente executar os comandos para **criar seu projeto React/Vite**, pois ele reconhecerá o npm que você instalou:
+Abra o terminal no VS Code, você pode finalmente executar os comandos para **criar seu projeto React/Vite**, pois ele reconhecerá o npm que você instalou:
 
 Abra o terminal no VS code e execute
 ```bash
@@ -49,7 +31,7 @@ npm -v
 
 ### 2.1. Crie seu projeto React usando Vite
 
-O Vite se tornou a maneira mais rápida e moderna de iniciar um projeto React. Ele oferece uma experiência de desenvolvimento super-rápida, utilizando a capacidade nativa de módulos ES do navegador.
+O Vite se tornou a maneira mais rápida e moderna de iniciar um projeto React. Ele oferece uma experiência de desenvolvimento rápida, utilizando a capacidade nativa de módulos ES do navegador.
 
 Abra seu terminal e execute o seguinte comando:
 
@@ -74,9 +56,7 @@ npm install
 npm run dev
 ```
 
-
-
-# 1. Verifique que abaixo tem para UM e DOIS SERVIDOR OPC-UA 
+## 3. Verifique que abaixo tem para UM e DOIS SERVIDOR OPC-UA 
 
 Sugestão de fazer primeiro para um servidor e depois para dois servidores.
 
@@ -87,7 +67,14 @@ Vamos usar FastAPI por ser moderno e fácil de usar.
 
 ### Para UM SERVIDOR OPC-UA 
 
+
 Crie um novo arquivo chamado **web_api.py**:
+
+```bash
+nano web_api.py
+```
+
+codigo: [web_api.py](/source/web_api.py)
 
 ```bash
 # web_api.py
@@ -409,12 +396,18 @@ if __name__ == "__main__":
 
 ### Criar e Ativar o Ambiente Virtual
 
-```bash
-# 1. Crie o ambiente virtual (chame-o de 'venv')
-python -m venv venv
+Instalar o Flask para o servidor web e o ambiente virtual (flask_env), escolha o nome para o qualquer o seu ambiente no lugar de flask_env.
 
-# 2. Ative o ambiente virtual (no PowerShell)
-.\venv\Scripts\Activate
+```bash
+sudo apt update
+sudo apt install python3-pip python3-venv -y
+
+# 1. Cria e ativa o ambiente virtual
+python3 -m venv flask_env
+source flask_env/bin/activate
+
+# 2. Instala o Flask
+pip install Flask
 ```
 
 Após a ativação, você verá (venv) no início da sua linha de comando, indicando que está no ambiente isolado
@@ -431,8 +424,6 @@ pip install fastapi uvicorn freeopcua
 ```bash
 uvicorn web_api:app --reload --port 8000
 ```
-
-
 
 
 ## 3. Crie a Aplicação React (Vite)
