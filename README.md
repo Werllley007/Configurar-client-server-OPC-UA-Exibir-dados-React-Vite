@@ -37,46 +37,17 @@ https://nodejs.org/
 
 **Instalação**: Execute o instalador baixado. Mantenha as configurações padrão. É crucial que a opção "Add to PATH" esteja marcada, mas geralmente ela já vem marcada por padrão.
 
-### 1.1 Verificação da Instalação
-Após a instalação, abra um novo terminal (ou Prompt de Comando/PowerShell) e execute os seguintes comandos para verificar se tudo está funcionando:
-
-```bash
-node -v
-npm -v
-```
-
-### 1.2 Criando o Projeto React
-Agora que o npx está disponível, você pode tentar criar o projeto novamente.
-
-Volte para a pasta C:\Users\Desktop no seu terminal e execute:
-
-```bash
-npx create-react-app meu-projeto-opcua-web
-```
-
-Quando terminar, entre na pasta do projeto e inicie o servidor de desenvolvimento:
-
-```bash
-cd meu-projeto-opcua-web
-npm start
-```
-
-### 1.3 Como usar o VS Code
-
-Depois que o Node.js estiver instalado, você pode usar o Terminal Integrado do VS Code, que é a maneira mais prática de criar e gerenciar seu projeto.
-
-Abra o VS Code.
-
-Vá em **Terminal** no menu superior e clique em **Novo Terminal** (ou use o atalho: Ctrl + ' no Windows).
+## 2. Verificando se o node esta configurado no VS Code
 
 Neste terminal que se abrirá dentro do VS Code, você pode finalmente executar os comandos para **criar seu projeto React/Vite**, pois ele reconhecerá o npm que você instalou:
 
-### 1.3.1. Verifique se o Node/npm está funcionando no terminal do VS Code
+Abra o terminal no VS code e execute
 ```bash
 node -v
 npm -v
 ```
-### 1.3.2. Crie seu projeto React usando Vite
+
+### 2.1. Crie seu projeto React usando Vite
 
 O Vite se tornou a maneira mais rápida e moderna de iniciar um projeto React. Ele oferece uma experiência de desenvolvimento super-rápida, utilizando a capacidade nativa de módulos ES do navegador.
 
@@ -90,15 +61,15 @@ Ou pode usar o comando abaixo para inserir o nome do projeto e o tipo de templat
 ```bash
 npm create vite@latest meu-projeto-opcua-web -- --template react
 ```
-### 1.3.3. Entre na pasta do projeto
+### 2.2. Entre na pasta do projeto
 ```bash
 cd meu-projeto-opcua-web
 ```
-### 1.3.4. Instale as dependências (as bibliotecas necessárias)
+### 2.3. Instale as dependências (as bibliotecas necessárias)
 ```bash
 npm install
 ```
-### 1.3.5. Inicie o servidor de desenvolvimento
+### 2.4. Inicie o servidor de desenvolvimento
 ```bash
 npm run dev
 ```
