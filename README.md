@@ -74,7 +74,7 @@ Crie um novo arquivo chamado **web_api.py**:
 nano web_api.py
 ```
 
-codigo: [web_api.py](/source/web_api.py)
+codigo: [web_api.py](/web_api.py)
 
 ```bash
 # web_api.py
