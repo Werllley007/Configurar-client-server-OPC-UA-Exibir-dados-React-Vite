@@ -133,21 +133,31 @@ Use rolldown-vite (Experimental)?:
 Install with npm and start now?
 │  ● Yes / ○ No
 
+  VITE v7.2.2  ready in 178 ms
 
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+
+Pressione Ctrl + c para sair da tela acima
+
+```bash
 cd vite-opcua-dashboard
 
 npm install
 ```
 ------------------------------------------------------------
 
-### Caso seja com UM SERVIDOR OPC-UA Edite src/App.jsx:
+### Edite vite-opcua-dashboard/src/App.jsx:
 
-Substitua o conteúdo de meu-projeto-opcua-web/src/App.jsx pelo seguinte:
+Substitua o conteúdo de vite-opcua-dashboard/src/App.jsx:
 
 ```bash
-cd meu-projeto-opcua-web/src/
+cd vite-opcua-dashboard/src/
 nano App.jsx
 ```
+pelo seguinte:
 
 codigo: [App.jsx](/um_servidor/App.jsx)
 
@@ -155,13 +165,35 @@ codigo: [App.jsx](/um_servidor/App.jsx)
 
 ###  Edite src/App.css:
 
-Substitua o conteúdo de meu-projeto-opcua-web/src/App.css pelo seguinte:
+Substitua o conteúdo de meu-projeto-opcua-web/src/App.css:
 
 ```bash
 cd meu-projeto-opcua-web/src/
 nano App.css
 ```
+pelo seguinte:
+
 codigo: [App.css](/um_servidor/App.css)
+
+###  Criando opcua_client.py:
+
+Crie um novo arquivo chamado **opcua_client.py**:
+
+```bash
+nano opcua_client.py
+```
+codigo: [opcua_client.py](/opcua_client.py)
+
+
+###  Criando opcua_server.py:
+
+Crie um novo arquivo chamado **opcua_server.py**:
+
+```bash
+nano opcua_server.py
+```
+
+codigo: [opcua_server.py](/opcua_server.py)
 
 
 ## Execute a Aplicação React
@@ -174,6 +206,7 @@ Windows:
 ```bash
 python.exe opcua_server.py
 ```
+Ou
 
 Linux:
 ```bash
@@ -184,39 +217,23 @@ python opcua_server.py
 
 Windows:
 ```bash
+# 1. Cria e ativa o ambiente virtual
 python.exe -m venv venv
-
 .\venv\Scripts\Activate
 
 uvicorn web_api:app --reload --port 8000
 ```
 
+Ou
+
 Linux:
 ```bash
-python -m venv venv
-
-source venv/bin/activate
+# 1. Cria e ativa o ambiente virtual
+python3 -m venv test_venv
+source test_venv/bin/activate
 
 uvicorn web_api:app --reload --port 8000
 ```
-
-**Terminal 2**: Execute o servidor Web FastAPI para **dois Servidor**.
-
-Windows:
-```bash
-python.exe -m venv venv
-
-.\venv\Scripts\Activate
-
-uvicorn web_api_new:app --reload --port 8000
-```
-
-Linux:
-```bash
-python3 -m venv flask_env
-source flask_env/bin/activate
-
-uvicorn web_api_new:app --reload --port 8000
 
 **Terminal 3**: No diretório vite-opcua-dashboard, execute a aplicação React.
 
@@ -271,4 +288,48 @@ nano App.css
 codigo: [App.css](/um_servidor/App.css)
 
 
+## Execute a Aplicação React
+
+No terminal do projeto vite-opcua-dashboard, execute:
+
+**Terminal 1**: Execute o servidor OPC UA (corrigido).
+
+Windows:
+```bash
+python.exe opcua_server.py
+```
+Ou
+
+Linux:
+```bash
+python opcua_server.py
+```
+
+**Terminal 2**: Execute o servidor Web FastAPI para **dois Servidor**.
+
+Windows:
+```bash
+python.exe -m venv venv
+
+.\venv\Scripts\Activate
+
+uvicorn web_api_new:app --reload --port 8000
+```
+
+Linux:
+```bash
+python3 -m venv flask_env
+source flask_env/bin/activate
+
+uvicorn web_api_new:app --reload --port 8000
+
+**Terminal 3**: No diretório vite-opcua-dashboard, execute a aplicação React.
+
+Dentro da pasta (Windows ou Linux):
+
+```bash
+cd vite-opcua-dashboard
+
+npm run dev
+```
 
