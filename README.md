@@ -311,7 +311,7 @@ uvicorn web_api_new:app --reload --port 8000
 
 codigo: [web_api_new.py](/dois_servidores/web_api_new.py)
 
-**Terminal 3**: No diretório vite-opcua-dashboard, execute a aplicação React.
+**Terminal 4**: No diretório vite-opcua-dashboard, execute a aplicação React.
 
 Tanto para Windows ou Linux, dentro da pasta vite-opcua-dashboard:
 
