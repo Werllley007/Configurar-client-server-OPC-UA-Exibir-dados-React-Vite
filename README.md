@@ -29,51 +29,9 @@ node -v
 npm -v
 ```
 
-
-
-
-
-
-
-
-
-### Crie seu projeto React usando Vite
-
-O Vite se tornou a maneira mais rápida e moderna de iniciar um projeto React. Ele oferece uma experiência de desenvolvimento rápida, utilizando a capacidade nativa de módulos ES do navegador.
-
-Abra seu terminal e execute o seguinte comando:
-
-```bash
-npm create vite@latest
-```
-Ou pode usar o comando abaixo para inserir o nome do projeto e o tipo de template usado que no caso é o REACT
-
-```bash
-npm create vite@latest meu-projeto-opcua-web -- --template react
-```
-### Entre na pasta do projeto
-```bash
-cd meu-projeto-opcua-web
-```
-### Instale as dependências (as bibliotecas necessárias)
-```bash
-npm install
-```
-### Inicie o servidor de desenvolvimento
-```bash
-npm run dev
-```
-
-
-
-
-
-
-
-
 # Procedimento para UM e DOIS SERVIDORES OPC-UA 
 
-Sugestão de fazer primeiro para um servidor e depois para dois servidores.
+Sugestão de desenvolvimento, siga o tutorial para um servidor e depois para dois servidores.
 
 -----------------------------
 
@@ -121,6 +79,8 @@ uvicorn web_api:app --reload --port 8000
 
 ## Crie a Aplicação React (Vite)
 
+O Vite se tornou a maneira mais rápida e moderna de iniciar um projeto React. Ele oferece uma experiência de desenvolvimento rápida, utilizando a capacidade nativa de módulos ES do navegador.
+
 ### Abra um novo terminal e execute:
 
 ```bash
@@ -132,7 +92,11 @@ Use rolldown-vite (Experimental)?:
 
 Install with npm and start now?
 │  ● Yes / ○ No
+```
 
+Se chegou aqui é porque não teve erros até o momento.
+
+```bash
   VITE v7.2.2  ready in 178 ms
 
   ➜  Local:   http://localhost:5173/
@@ -140,14 +104,13 @@ Install with npm and start now?
   ➜  press h + enter to show help
 ```
 
-Pressione Ctrl + c para sair da tela acima
+Pressione Ctrl + c para sair da tela acima, depois entre na pasta do projeto.
 
 ```bash
 cd vite-opcua-dashboard
 
 npm install
 ```
-------------------------------------------------------------
 
 ### Edite vite-opcua-dashboard/src/App.jsx:
 
@@ -161,14 +124,13 @@ pelo seguinte:
 
 codigo: [App.jsx](/um_servidor/App.jsx)
 
-------------------------------------------------------------
 
-###  Edite src/App.css:
+###  Edite vite-opcua-dashboard/src/App.css:
 
 Substitua o conteúdo de meu-projeto-opcua-web/src/App.css:
 
 ```bash
-cd meu-projeto-opcua-web/src/
+cd vite-opcua-dashboard/src/
 nano App.css
 ```
 pelo seguinte:
@@ -210,9 +172,8 @@ Ou
 
 Linux:
 ```bash
-python opcua_server.py
+python3 opcua_server.py
 ```
-
 **Terminal 2**: Execute o servidor Web FastAPI para **um Servidor**.
 
 Windows:
@@ -255,44 +216,52 @@ Você deverá ver um dashboard simples em React exibindo os valores dos sensores
 
 ## DOIS SERVIDORES OPC-UA 
 
+###  Criando **web_api_new.py**:
+
 Crie um novo arquivo chamado **web_api_new.py**:
 
 ```bash
 nano web_api_new.py
 ```
-
 codigo: [web_api_new.py](/dois_servidores/web_api_new.py)
 
+###  Criando **opcua_server_new.py**:
 
+Crie um novo arquivo chamado **opcua_server_new.py**:
 
-### DOIS SERVIDORES OPC-UA Edite src/App.jsx:
+```bash
+nano opcua_server_new.py
+```
+codigo: [opcua_server_new.py](/dois_servidores/opcua_server_new.py)
+
+### Edite vite-opcua-dashboard/src/App.jsx:
 
 Substitua o conteúdo de meu-projeto-opcua-web/src/App.jsx pelo seguinte:
 
 ```bash
-cd meu-projeto-opcua-web/src/
+cd vite-opcua-dashboard/src/
 nano App.jsx
 ```
-codigo: [App_new.jsx](/dois_servidores/App.jsx)
+codigo: [App.jsx](/dois_servidores/App.jsx)
 
 
 
-###  Edite src/App.css:
+###  Edite vite-opcua-dashboard/src/App.css:
 
 Substitua o conteúdo de meu-projeto-opcua-web/src/App.css pelo seguinte:
 
 ```bash
-cd meu-projeto-opcua-web/src/
+cd vite-opcua-dashboard/src/
 nano App.css
 ```
-codigo: [App.css](/um_servidor/App.css)
+codigo: [App.css](/dois_servidores/App.css)
 
 
 ## Execute a Aplicação React
 
 No terminal do projeto vite-opcua-dashboard, execute:
 
-**Terminal 1**: Execute o servidor OPC UA (corrigido).
+**Terminal 1**: Execute o servidor 1 OPC UA.
 
 Windows:
 ```bash
@@ -302,10 +271,26 @@ Ou
 
 Linux:
 ```bash
-python opcua_server.py
+python3 opcua_server.py
 ```
 
-**Terminal 2**: Execute o servidor Web FastAPI para **dois Servidor**.
+codigo: [opcua_server.py](/dois_servidores/opcua_server.py)
+
+**Terminal 2**: Execute o servidor 2 OPC UA.
+
+Windows:
+```bash
+python.exe opcua_server_new.py
+```
+Ou
+
+Linux:
+```bash
+python3 opcua_server_new.py
+```
+codigo: [opcua_server_new.py](/dois_servidores/opcua_server_new.py)
+
+**Terminal 3**: Execute o servidor Web FastAPI **web_api_new.py**.
 
 Windows:
 ```bash
@@ -322,10 +307,13 @@ python3 -m venv flask_env
 source flask_env/bin/activate
 
 uvicorn web_api_new:app --reload --port 8000
+```
+
+codigo: [web_api_new.py](/dois_servidores/web_api_new.py)
 
 **Terminal 3**: No diretório vite-opcua-dashboard, execute a aplicação React.
 
-Dentro da pasta (Windows ou Linux):
+Tanto para Windows ou Linux, dentro da pasta vite-opcua-dashboard:
 
 ```bash
 cd vite-opcua-dashboard
